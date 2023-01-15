@@ -6,3 +6,4 @@ foreach ($element in $splitString)
     {
     Write-Host $element
     }
+    
