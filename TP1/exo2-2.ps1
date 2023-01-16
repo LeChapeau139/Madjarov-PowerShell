@@ -1,4 +1,4 @@
-#Créer une variable username, puis demande sur le shell :
+#Créer une variable username, puis demande sur le shell:
 $username = Read-Host "Entrez votre nom d'utilisateur"
 #Créer une variable password, puis demande sur le shell :
 $password = Read-Host -AsSecureString "Entrez votre mot de passe"
