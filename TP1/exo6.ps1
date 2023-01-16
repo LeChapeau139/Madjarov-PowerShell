@@ -16,6 +16,7 @@ if ($res.Status -eq "Success") {
 $semi_adrr = Read-Host "Quel adresse IP vous voulez tester, que les 3 premiers octets? (X.X.X.**)"
 
 for ($i = 1; $i -le 10; $i++) {
+    #Dans la variable $ip, on récupère les 3 premiers octet de @IP, et on ajoute $i via la boucle 
     $ip = "$semi_adrr.$i"
     write-host "On teste la machine $ip"
     $res = $ping.send($ip)
