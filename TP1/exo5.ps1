@@ -1,4 +1,4 @@
-# Vérifier si on a des arguments 
+# Vérifier si on a des arguments < 0
 if ($args.Count -eq 0) 
     {
     Write-Host "Erreur, vous n'avez rentré aucun argument"
