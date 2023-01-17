@@ -13,18 +13,14 @@ if ($res.Status -eq "Success") {
 }
 
 # Boucle pour tester le ping sur un ensemble de machines dans un réseau
-$semi_adrr = Read-Host "Quel adresse IP vous voulez tester, que les 3 premiers octets? (X.X.X.**)"
+$3oct_adrr = Read-Host "Quel adresse IP vous voulez tester, que les 3 premiers octets? (X.X.X.**)"
 
 for ($i = 1; $i -le 10; $i++) {
     #Dans la variable $ip, on récupère les 3 premiers octet de @IP, et on ajoute $i via la boucle 
-    $ip = "$semi_adrr.$i"
-    write-host "On teste la machine $ip"
+    $ip = "$3oct_adrr.$i"
     if (Test-Connection -ComputerName "$ip" -Count 1 -Quiet) {
         write-host "La machine $ip est active"
     } else {
         write-host "La machine $ip est inactive"
     }
 }
-
-# Utilisation de la commande Test-Connection pour obtenir le même résultat en limitant le nombre de requêtes à 1
-
