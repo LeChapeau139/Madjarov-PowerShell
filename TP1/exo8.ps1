@@ -4,7 +4,7 @@ $intervalle = $args[1]
 
 # Vérification de la présence des arguments
 if ($path -eq $null) {
-    Write-Output "Absence de fichier / dossier à sauvegarder"
+    Write-Output "Absence de fichier ou dossier à sauvegarder"
     exit
 }
 if ($intervalle -eq $null) {
@@ -37,4 +37,6 @@ while ($true) {
 
     # Temporisation avant la prochaine sauvegarde
     Start-Sleep -Seconds $intervalle
+    # Message qui montre que la sauvegarde à été faite
+    Write-Output "Sauvegarde Check"
 }
