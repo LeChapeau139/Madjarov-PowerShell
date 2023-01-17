@@ -1,4 +1,5 @@
-#Affecter à la variable $password, le mot de passe "motdepasse", et le crypter avec "-AsSecureString"
-$mon_password = ConvertTo-SecureString "motdepasse" -AsSecureString
-#Créer un nouvel utilisateur avec comme nom "new_quentin_user", et le mot de passe défini juste avant
-New-LocalUser -Name "new_quentin_user" -Password $mon_password
+$username = Read-Host "Entrez le nom de votre nouvel utilisateur "
+$password = Read-Host -AsSecureString "Entrez le mot de passe corespondant"
+$pass_crypt = ConvertTo-SecureString -AsPlainText $password -Force
+New-LocalUser -Name $username -Password $pass_crypt
+Get-LocalUser -Name $username | Select-Object *

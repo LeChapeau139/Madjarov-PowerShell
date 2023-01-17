@@ -19,8 +19,7 @@ for ($i = 1; $i -le 10; $i++) {
     #Dans la variable $ip, on récupère les 3 premiers octet de @IP, et on ajoute $i via la boucle 
     $ip = "$semi_adrr.$i"
     write-host "On teste la machine $ip"
-    $res = $ping.send($ip)
-    if ($res.Status -eq "Success") {
+    if (Test-Connection -ComputerName "$ip" -Count 1 -Quiet) {
         write-host "La machine $ip est active"
     } else {
         write-host "La machine $ip est inactive"
@@ -28,4 +27,4 @@ for ($i = 1; $i -le 10; $i++) {
 }
 
 # Utilisation de la commande Test-Connection pour obtenir le même résultat en limitant le nombre de requêtes à 1
-Test-Connection -ComputerName "$ip" -Count 1 | Select-Object -ExpandProperty Status
+
