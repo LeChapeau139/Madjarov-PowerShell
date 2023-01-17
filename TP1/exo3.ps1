@@ -1,10 +1,13 @@
 #Permettre de récupérer l'adresse IP d'un pc (ifconfig)
+#---------------------------------------------------------------------------------------------------------------------#
+#Permet d'afficher toutes les @IPs de type IPv4
 ipconfig | Select-String "IPv4"
-#Afficher les paramètres de la carte réseau 
+#---------------------------------------------------------------------------------------------------------------------#
+#Afficher TOUS les paramètres de la carte réseau 
 Get-NetAdapter
+#---------------------------------------------------------------------------------------------------------------------#
 
-
-
+#Permet de lister tous les services qui sont en cours d'execution
 #---------------------------------------------------------------------------------------------------------------------#
 #Get-Service nous permet de récupérer le status de chaque service actif, lorsqu'ils sont en mode "running" donc marche 
 $services = Get-Service | Where-Object {$_.Status -eq "Running"}
@@ -18,6 +21,9 @@ foreach ($service_run in $services)
     #On délimite chaque service par "---" 
     Write-Host "---"
     }
+#---------------------------------------------------------------------------------------------------------------------#
+
+#Permet de lister toutes les interfaces réseaux avec leur Nom / @MAC / Statut
 #---------------------------------------------------------------------------------------------------------------------#
 #Get-NetAdapter nous permet de récupérer les paramètres de la carte réseau
 $interfaces = Get-NetAdapter
@@ -33,5 +39,4 @@ foreach ($interface in $interfaces)
     #On délimite chaque interface par "---" 
     Write-Host "---"
     }
-
 #---------------------------------------------------------------------------------------------------------------------#
