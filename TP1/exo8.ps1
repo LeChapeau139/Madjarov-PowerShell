@@ -30,13 +30,8 @@ if ($intervalle -lt 30) {
 # Récupération du chemin du répertoire personnel de l'utilisateur connecté
 $userPath = [Environment]::GetFolderPath("Personal")
 
-# Boucle de sauvegarde
-while ($true) {
-    # Copie de l'élément à sauvegarder dans le répertoire personnel
-    Copy-Item -Path $path -Destination $userPath -Recurse
+# Copie de l'élément à sauvegarder dans le répertoire personnel
+Copy-Item -Path $path -Destination $userPath -Recurse
 
-    # Temporisation avant la prochaine sauvegarde
-    Start-Sleep -Seconds $intervalle
-    # Message qui montre que la sauvegarde à été faite
-    Write-Output "Sauvegarde Check"
-}
+# Temporisation avant la prochaine sauvegarde
+Start-Sleep -Seconds $intervalle
